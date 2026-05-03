@@ -26,14 +26,21 @@ public class Main {
     }
 
     static int getChoice() {
-        System.out.print("Enter your choice (1 or 2): ");
-        if (scanner.hasNextInt()) {
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-            return choice;
+        while (true) {
+            System.out.print("Enter your choice (1 or 2): ");
+            if (scanner.hasNextInt()) {
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+                if (choice == 1 || choice == 2) {
+                    return choice;
+                } else {
+                    System.out.println("Invalid choice. Please enter 1 or 2.");
+                }
+            } else {
+                scanner.nextLine();
+                System.out.println("Invalid input. Please enter a number.");
+            }
         }
-        scanner.nextLine();
-        return 0;
     }
 
     static void usePotion() {
